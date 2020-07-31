@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<nav th:replace="partials/partials :: navbar"/>
+<body>
+<h1>This is <span th:text="${user}"></span>'s profile</h1>
+
+<div th:if="${isLoggedIn}">
+
+<ul th:each="ad : ${ads}">
+    <li th:text="${ad}"></li>
+
+</ul>
+</div>
+<!--frgament name from partials.html-->
+<footer th:replace="partials/partials :: footer"/>
+</body>
+</html>
