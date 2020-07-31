@@ -13,20 +13,25 @@ public class MathController {
     @ResponseBody
     public String MathContoller(@PathVariable String thing, @PathVariable int num1, @PathVariable int num2) {
         if (thing.equalsIgnoreCase("add") || thing.equalsIgnoreCase("+")) {
-            int answer = num1 + num2;
-            return num1 + " + " + num2 + " = " + answer;
+            String style = "<body style = background-color:yellow>";
+            int answer = num1 + num2 ;
+            return "<h1 style=text-align:center;>"+ num1 + "<i> + </i> " + num2 + " = " + answer + "</h1>" +style;
         } else if (thing.equalsIgnoreCase("minus") || thing.equalsIgnoreCase("-")) {
+            String style = "<body style=background-color:red;color: white;>";
             int answer = num1 - num2;
-            return num1 + " - " + num2 + " = " + answer;
+            return "<h1 style=text-align:center;>"+num1 + " - " + num2 + " = " + answer + "</h1>" +style;
         } else if (thing.equalsIgnoreCase("multiply") || thing.equalsIgnoreCase("x")) {
+            String style = "<body style=background-color:blue;color: white;>";
             int answer = num1 * num2;
-            return num1 + " * " + num2 + " = " + answer;
-        } else if (thing.equalsIgnoreCase("divide") || thing.equalsIgnoreCase("/")) {
+            return "<h1 style=text-align:center;>"+num1 + " * " + num2 + " = " + answer + "</h1>" +style;
+        } else if (thing.equalsIgnoreCase("divide") || thing.equalsIgnoreCase("\"/\"")) {
+            String style = "<body style=background-color:purple;color: white;margin:0 auto;>";
             int answer = num1 / num2;
-            return num1 + " / " + num2 + " = " + answer;
+            return "<h1 style=text-align:center;>"+num1 + " / " + num2 + " = " + answer + "</h1>" +style;
         } else if (thing.equalsIgnoreCase("modulus") || thing.equalsIgnoreCase("%")) {
+            String style = "<body style=background-color:green;color: white;>";
             int answer = num1 % num2;
-            return num1 + " % " + num2 + " = " + answer;
+            return "<h1 style=text-align:center;>"+num1 + " % " + num2 + " = " + answer + "</h1>" +style;
         } else {
             return "whatever, who likes math anyways";
         }
