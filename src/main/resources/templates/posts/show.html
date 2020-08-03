@@ -10,12 +10,13 @@
 
 <h1>Show</h1>
 <hr>
-
-<div th:each="post : ${indPost}">
+<!--<h1 th:text="${title}"></h1>-->
+<!--<h3 th:text="${body}"></h3>-->
+<!--<div th:each="post : ${indPost}">-->
     <h2 th:text="${indPost.title}"></h2>
     <p th:text="${indPost.post}"></p>
-    <hr><br>
-</div>
+<!--    <hr><br>-->
+<!--</div>-->
 
 <footer th:replace="partials/partials :: footer"/>
 </body>

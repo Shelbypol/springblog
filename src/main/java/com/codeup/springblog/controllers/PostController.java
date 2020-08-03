@@ -1,5 +1,6 @@
-package com.codeup.springblog;
+package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,20 +16,20 @@ public class PostController {
 
     @GetMapping("/posts")
     public String postsIndexPage( Model model){
-        ArrayList<String> ads = new ArrayList<String>();
-        ads.add("Ad 1");
-        ads.add("Ad 2");
-        ads.add("Ad 3");
+        ArrayList<Post> myPost = new ArrayList<Post>();
+        myPost.add(new Post(1, "new title 1", "new post"));
+        myPost.add(new Post(2, "new title 2", "new post"));
+        myPost.add(new Post(3, "new title 3", "new post"));
 
-        model.addAttribute("ads", ads);
+        model.addAttribute("posts", myPost);
         return "posts/index";
     }
 
-
     @GetMapping("/posts/{id}")
     public String indPostPage(@PathVariable int id, Model model){
-        Post indPost = new Post("new title", "new post");
-
+        Post indPost = new Post("new title hc", "new post");
+//        model.addAttribute("title", indPost.getTitle());
+//        model.addAttribute("body", indPost.getBody());
         model.addAttribute("indPost", indPost);
         return "posts/show";
     }
