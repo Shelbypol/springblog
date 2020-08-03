@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <nav th:replace="partials/partials :: navbar"/>
+<header th:replace="partials/partials :: header"/>
 <body>
 <h1>This is <span th:text="${user}"></span>'s profile</h1>
 
@@ -12,8 +13,8 @@
 
 <ul th:each="ad : ${ads}">
     <li th:text="${ad}"></li>
-
 </ul>
+
 </div>
 <!--frgament name from partials.html-->
 <footer th:replace="partials/partials :: footer"/>

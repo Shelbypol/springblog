@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/partials :: navbar"/>
+<header th:replace="partials/partials :: header"/>
 
+<h1>index</h1>
+<hr>
+<ul th:each="ad : ${ads}">
+    <li th:text="${ad}"></li>
+</ul>
+
+<footer th:replace="partials/partials :: footer"/>
 </body>
 </html>

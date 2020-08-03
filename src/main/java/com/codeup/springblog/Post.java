@@ -10,6 +10,10 @@ public class Post {
         this.post = post;
     }
 
+    public Post() {
+
+    }
+
     public String getTitle() {
         return title;
     }

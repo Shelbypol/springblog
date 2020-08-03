@@ -16,8 +16,10 @@ public class RollDiceController {
 
     @PostMapping
     public String num(@RequestParam(name = "num") String num, Model model) {
-        String randNum = String.valueOf((int)(Math.random() * 5) + 1);
-
+        int randNum = 0;
+        for(int i = 1; i < 6; i++) {
+            randNum = (int) (Math.random() * 5) + 1;
+        }
         model.addAttribute("dieRoll", randNum);
         model.addAttribute("userGuess", num);
 

@@ -6,8 +6,8 @@
     <title>Dice Game</title>
 </head>
 <body>
-<nav th:replace="partials/partials :: navbar"/>
-<footer th:replace="partials/partials :: header"/>
+<!--<nav th:replace="partials/partials :: navbar"/>-->
+<!--<header th:replace="partials/partials :: header"/>-->
 <br>
 <h1>Let's Play a game...</h1>
 <form action="/roll-dice" method="post">
@@ -25,6 +25,7 @@
 <h3 th:if="${userGuess} != ${dieRoll}">You picked: <span th:text="${userGuess}"></span></h3>
 <h3 th:if="${userGuess} != ${dieRoll}">The die rolled: <span th:text="${dieRoll}"></span></h3>
 
-<footer th:replace="partials/partials :: footer"/>
+<!--<footer th:replace="partials/partials :: footer"/>-->
+
 </body>
 </html>
