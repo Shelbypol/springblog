@@ -6,14 +6,25 @@
     <title>Dice Game</title>
 </head>
 <body>
-
-<h3 th:text="${userGuess}"></h3>
-
-<form action="/roll-dice">
-    <label for="num"></label>
-    <input type="num" name="num" id="num" min="1" max="6">
-    <button>Submit</button>
+<nav th:replace="partials/partials :: navbar"/>
+<footer th:replace="partials/partials :: header"/>
+<br>
+<h1>Let's Play a game...</h1>
+<form action="/roll-dice" method="post">
+    <label for="num">Pick a number.</label>
+    <hr>
+    <input type="number" name="num" id="num" min="1" max="6">
+    <button>Submit your guess.</button>
 </form>
 
+<h3 th:if="${userGuess} == ${dieRoll}">You Won!</h3>
+<h3 th:if="${userGuess} == ${dieRoll}">You picked: <span th:text="${userGuess}"></span></h3>
+<h3 th:if="${userGuess} == ${dieRoll}">The die rolled: <span th:text="${dieRoll}"></span></h3>
+
+<h3 th:if="${userGuess} != ${dieRoll}">You Lost!</h3>
+<h3 th:if="${userGuess} != ${dieRoll}">You picked: <span th:text="${userGuess}"></span></h3>
+<h3 th:if="${userGuess} != ${dieRoll}">The die rolled: <span th:text="${dieRoll}"></span></h3>
+
+<footer th:replace="partials/partials :: footer"/>
 </body>
 </html>
