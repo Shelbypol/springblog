@@ -12,9 +12,6 @@ import java.util.ArrayList;
 @Controller
 public class PostController {
 
-//    @GetMapping("/posts")
-//    @ResponseBody
-//    public String posts(){ return "posts/index";}
 
     @GetMapping("/posts")
     public String postsIndexPage( Model model){
@@ -27,13 +24,11 @@ public class PostController {
         return "posts/index";
     }
 
-//    @GetMapping("/posts/{id}")
-//    public String indPostPage(){ return "posts/show";}
 
     @GetMapping("/posts/{id}")
     public String indPostPage(@PathVariable int id, Model model){
         Post indPost = new Post("new title", "new post");
-//        String idNew = toString("id");
+
         model.addAttribute("indPost", indPost);
         return "posts/show";
     }
