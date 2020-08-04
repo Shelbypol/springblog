@@ -11,8 +11,13 @@
 <h1>Show</h1>
 <hr>
 
-    <h2 th:text="${title}"></h2>
-    <p th:text="${body}"></p>
+<h2 th:text="${title}"></h2>
+<p th:text="${body}"></p>
+
+<form action="/posts/show/${id}" method="post">
+    <input type="hidden" th:value="${id}" name="deleteBtn">
+    <button type="submit" onClick="return confirm('sure?')">Delete</button>
+</form>
 
 
 <footer th:replace="partials/partials :: footer"/>

@@ -34,8 +34,19 @@ public class PostController {
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
+        model.addAttribute("od", indPost.getId());
+
         return "posts/show";
     }
+
+    //    DELETE POST
+    @PostMapping("/posts/show/{id}")
+    public String deletePost(@RequestParam(name = "deleteBtn") long id){
+        postsDao.deleteById(id);
+
+        return "redirect:/posts";
+    }
+
 
 //  SAVE POST
     @GetMapping("posts/save")
@@ -67,14 +78,5 @@ public class PostController {
         return null;
     }
 
-
-
-//    @PostMapping("/posts/index")
-////    @ResponseBody
-//    public String deletePost(@RequestParam(name = "deleteBtn") long id){
-//        postsDao.deleteById(id);
-//
-//        return "index";
-//    }
 
 }

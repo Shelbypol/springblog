@@ -7,7 +7,7 @@ show tables;
 
 # DROP DATABASE IF EXISTS spring_db;
 # Drop table posts;
-Drop table posts;
+# Drop table posts;
 describe posts;
 
 select * from posts;
