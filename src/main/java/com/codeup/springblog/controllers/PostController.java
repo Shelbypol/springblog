@@ -19,6 +19,7 @@ public class PostController {
         this.postsDao = postsDao;
     }
 
+//  ALL POSTS
     @GetMapping("/posts")
     public String postsIndexPage( Model model){
         List<Post> myPost = postsDao.findAll();
@@ -26,23 +27,17 @@ public class PostController {
 
         return "posts/index";
     }
-
+//  IND POST VIEW
     @GetMapping("/posts/show/{id}")
-    public String indPostPage(){
-
-        return "posts/show";
-    }
-
-    @PostMapping("/posts/show/{id}")
-    public String indPost(@RequestParam(name = "view") long id, Model model) {
+    public String indPostPage(@PathVariable(value = "id") long id, Model model){
         Post indPost = postsDao.getOne(id);
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
-        return "show";
+        return "posts/show";
     }
 
-
+//  SAVE POST
     @GetMapping("posts/save")
     public String save(){
         Post postToSave = new Post();
@@ -52,19 +47,20 @@ public class PostController {
         return "redirect:/posts";
     }
 
+//  FIND POST
     @GetMapping("posts/test")
     @ResponseBody
     public String getTestPost(){
         return postsDao.findByTitle("Barneys").toString();
     }
 
-
+//  CREATE POST
     @GetMapping("/posts/create")
     @ResponseBody
     public String createPost(){
         return "Create post";
     }
-
+//  CREATE POST
     @PostMapping("/posts/create")
     @ResponseBody
     public String getPost(){

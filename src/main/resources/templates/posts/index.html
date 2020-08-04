@@ -15,7 +15,7 @@
     <li th:text="${post.title}"></li>
     <li th:text="${post.post}"></li>
     <li>
-        <a th:href="@{/posts/show/(id=${post.id})}" name="view">View</a>
+        <a th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">View</a>
     </li>
 </ul>
 
