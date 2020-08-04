@@ -2,18 +2,20 @@ package com.codeup.springblog.models;
 
 //import javax.persistence.*;
 
-//@Entity
-//@Table(name = "posts")
+import javax.persistence.*;
+
+@Entity
+@Table(name = "posts")
 public class Post {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 50, nullable = false, unique = true)
     private String title;
 
-//    @Column(columnDefinition = "TEXT NOT NULL")
+    @Column(columnDefinition = "TEXT NOT NULL")
     private String post;
 
     public Post(long id, String title, String post) {
@@ -53,5 +55,14 @@ public class Post {
 
     public void setPost(String post) {
         this.post = post;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", post='" + post + '\'' +
+                '}';
     }
 }
