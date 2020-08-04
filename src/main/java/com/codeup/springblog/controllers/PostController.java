@@ -4,10 +4,7 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +14,6 @@ public class PostController {
 
 //    dependency injection
     private final PostRepository postsDao;
-    //expand on constructor to inject both of them;
 
     public PostController(PostRepository postsDao){
         this.postsDao = postsDao;
@@ -31,15 +27,21 @@ public class PostController {
         return "posts/index";
     }
 
-    @GetMapping("/posts/{id}")
-    public String indPostPage(@PathVariable long id, Model model){
+    @GetMapping("/posts/show/{id}")
+    public String indPostPage(){
+
+        return "posts/show";
+    }
+
+    @PostMapping("/posts/show/{id}")
+    public String indPost(@RequestParam(name = "view") long id, Model model) {
         Post indPost = postsDao.getOne(id);
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
-
-        return "posts/show";
+        return "show";
     }
+
 
     @GetMapping("posts/save")
     public String save(){
@@ -63,14 +65,20 @@ public class PostController {
         return "Create post";
     }
 
-    @PostMapping("/post/create")
+    @PostMapping("/posts/create")
     @ResponseBody
     public String getPost(){
         return null;
     }
 
-    private class findById extends Post {
-        public findById(long id) {
-        }
-    }
+
+
+//    @PostMapping("/posts/index")
+////    @ResponseBody
+//    public String deletePost(@RequestParam(name = "deleteBtn") long id){
+//        postsDao.deleteById(id);
+//
+//        return "index";
+//    }
+
 }

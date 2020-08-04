@@ -9,7 +9,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     Post findByTitle(String title);
 
-    Post findFirstByOrderByTitleAsc();
+//    Post findFirstByOrderByTitleAsc();
 
 //   jpa query lang... JPQL
 //    @Query("from Post a where a.id like ?1");

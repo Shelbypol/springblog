@@ -14,6 +14,9 @@
 <ul th:each="post : ${posts}">
     <li th:text="${post.title}"></li>
     <li th:text="${post.post}"></li>
+    <li>
+        <a th:href="@{/posts/show/(id=${post.id})}" name="view">View</a>
+    </li>
 </ul>
 
 <footer th:replace="partials/partials :: footer"/>
