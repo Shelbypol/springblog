@@ -22,6 +22,7 @@ public class PostController {
     //  ALL POSTS
     @GetMapping("/posts")
     public String postsIndexPage(Model model) {
+
         List<Post> myPost = postsDao.findAll();
         model.addAttribute("posts", myPost);
 
@@ -32,9 +33,9 @@ public class PostController {
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
-
-        model.addAttribute("title", indPost.getTitle());
-        model.addAttribute("body", indPost.getPost());
+        model.addAttribute("post", indPost);
+//        model.addAttribute("title", indPost.getTitle());
+//        model.addAttribute("body", indPost.getPost());
 
         return "posts/show";
     }
@@ -49,8 +50,8 @@ public class PostController {
 
 //      EDIT POST
     @GetMapping("posts/edit/{id}")
-    public String editPost(@PathVariable(value = "id") long id, Model model) {
-        Post indPost = postsDao.getPostById(id);
+    public String editPost(@PathVariable long id, Model model) {
+        Post indPost = postsDao.getOne(id);
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
@@ -59,13 +60,14 @@ public class PostController {
 
     @PostMapping("/posts/show/edit/{id}")
     public String editPost(@PathVariable long id, @RequestParam(name = "titleEdit") String titleUpdate, @RequestParam(name = "postEdit") String postUpdate) {
-        Post post = postsDao.findById(id);
+        Post post = postsDao.getOne(id);
         post.setId(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);
 
-        return "redirect:/posts";
+        return "posts/show";
+//        return "redirect:/posts";
 
     }
 
