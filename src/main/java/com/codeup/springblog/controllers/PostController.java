@@ -58,21 +58,25 @@ public class PostController {
     }
 
     @PostMapping("/posts/show/edit/{id}")
-    public String editPost(@RequestParam(name = "editBtn") long id) {
-        postsDao.
+    public String editPost(@PathVariable long id, @RequestParam(name = "titleEdit") String titleUpdate, @RequestParam(name = "postEdit") String postUpdate) {
+        Post post = postsDao.findById(id);
+        post.setTitle(titleUpdate);
+        post.setPost(postUpdate);
+        postsDao.save(post);
 
         return "redirect:/posts";
+
     }
 
     //  SAVE POST
-    @GetMapping("posts/save")
-    public String save() {
-        Post postToSave = new Post();
-        postToSave.setTitle("new add");
-        postToSave.setPost("updated post");
-        postsDao.save(postToSave);
-        return "redirect:/posts";
-    }
+//    @GetMapping("posts/save")
+//    public String save() {
+//        Post postToSave = new Post();
+//        postToSave.setTitle();
+//        postToSave.setPost();
+//        postsDao.save(postToSave);
+//        return "redirect:/posts";
+//    }
 
     //  FIND POST
     @GetMapping("posts/test")

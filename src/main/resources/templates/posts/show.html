@@ -14,10 +14,6 @@
 
 <!--    EDIT BTN    -->
 <a th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a>
-<!--<form action="/posts/edit/${id}" method="get">-->
-<!--    <input type="hidden" th:value="${id}" name="editBtn">-->
-<!--    <button type="submit">Edit</button>-->
-<!--</form>-->
 
 <!--    DELETE BTN    -->
 <form action="/posts/show/${id}" method="post">
