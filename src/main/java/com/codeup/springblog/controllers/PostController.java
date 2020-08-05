@@ -39,7 +39,7 @@ public class PostController {
         return "posts/show";
     }
 
-    //  DELETE POST
+//    DELETE POST
     @PostMapping("/posts/show/{id}")
     public String deletePost(@RequestParam(name = "deleteBtn") long id) {
         postsDao.deleteById(id);
@@ -60,6 +60,7 @@ public class PostController {
     @PostMapping("/posts/show/edit/{id}")
     public String editPost(@PathVariable long id, @RequestParam(name = "titleEdit") String titleUpdate, @RequestParam(name = "postEdit") String postUpdate) {
         Post post = postsDao.findById(id);
+        post.setId(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);

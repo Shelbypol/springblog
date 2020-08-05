@@ -9,10 +9,10 @@
 <h2>Edit</h2>
 
 <!--    EDIT FORM   -->
-<form action="/posts/show/edit" method="post">
+<form action="/posts/edit/{id}" method="post">
     <div class="form-group">
         <label for="editTitle">Edit Title</label>
-        <input type="text" class="form-control" id="editTitle"name="titleEdit" th:placeholder="${title}">
+        <input type="text" class="form-control" id="editTitle" name="titleEdit" th:placeholder="${title}">
     </div>
     <div class="form-group">
         <label for="editPost">Edit Body</label>
