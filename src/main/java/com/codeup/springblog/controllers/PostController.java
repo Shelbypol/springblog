@@ -39,7 +39,7 @@ public class PostController {
         return "posts/show";
     }
 
-    //    DELETE POST
+    //  DELETE POST
     @PostMapping("/posts/show/{id}")
     public String deletePost(@RequestParam(name = "deleteBtn") long id) {
         postsDao.deleteById(id);
@@ -47,24 +47,22 @@ public class PostController {
         return "redirect:/posts";
     }
 
-    //  EDIT POST
-    @GetMapping("posts/show/edit")
+//      EDIT POST
+    @GetMapping("posts/edit/{id}")
     public String editPost(@PathVariable(value = "id") long id, Model model) {
-        Post indPost = postsDao.getOne(id);
+        Post indPost = postsDao.getPostById(id);
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
-
-        return "posts/show/edit";
-
+        return "edit";
     }
 
-//    @PostMapping("/posts/show/edit")
-//    public String editPost(@RequestParam(name = "editBtn") long id) {
-//        postsDao.;
-//
-//        return "redirect:/posts";
-//    }
+    @PostMapping("/posts/show/edit/{id}")
+    public String editPost(@RequestParam(name = "editBtn") long id) {
+        postsDao.
+
+        return "redirect:/posts";
+    }
 
     //  SAVE POST
     @GetMapping("posts/save")
