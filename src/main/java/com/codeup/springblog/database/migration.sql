@@ -5,10 +5,11 @@ use spring_db;
 
 show tables;
 
-# DROP DATABASE IF EXISTS spring_db;
+DROP DATABASE IF EXISTS spring_db;
 # Drop table posts;
 Drop table posts;
 describe posts;
+describe comments;
 
 select * from posts;
 

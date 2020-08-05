@@ -9,14 +9,14 @@
 <h2>Edit</h2>
 
 <!--    EDIT FORM   -->
-<form th:action="@{'/posts/edit/' + {id}} " th:method="post">
+<form th:action="@{'/posts/edit/' + {id}}" th:method="post">
     <div class="form-group">
         <label for="editTitle">Edit Title</label>
-        <input type="text" class="form-control" id="editTitle" name="titleEdit"  th:placeholder="${title}">
+        <input type="text" class="form-control" id="editTitle" name="titleEdit" th:value="${title}">
     </div>
     <div class="form-group">
         <label for="editPost">Edit Body</label>
-        <input type="text" class="form-control" id="editPost" name="postEdit"  th:placeholder="${body}">
+        <textarea class="form-control" id="editPost" name="postEdit"  th:text="${body}"></textarea>
     </div>
     <button type="submit">Submit changes</button>
 </form>

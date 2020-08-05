@@ -3,6 +3,7 @@ package com.codeup.springblog.models;
 //import javax.persistence.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -18,16 +19,21 @@ public class Post {
     @Column(columnDefinition = "TEXT NOT NULL")
     private String post;
 
+    @OneToMany(mappedBy = "parentPost")
+    private List<Comment> comments;
+
+
+
     public Post(long id, String title, String post) {
         this.id= id;
         this.title = title;
         this.post = post;
     }
 
-    public Post(String title, String post) {
-        this.title = title;
-        this.post = post;
-    }
+//    public Post(String title, String post) {
+//        this.title = title;
+//        this.post = post;
+//    }
 
     public Post() {
 

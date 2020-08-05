@@ -55,18 +55,20 @@ public class PostController {
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
-        return "edit";
+        return "/edit";
     }
 
-    @PostMapping("/posts/show/edit/{id}")
-    public String editPost(@PathVariable long id, @RequestParam(name = "titleEdit") String titleUpdate, @RequestParam(name = "postEdit") String postUpdate) {
+    @PostMapping("/posts/edit/{id}")
+    public String editPost(@PathVariable long id,
+                           @RequestParam(name = "titleEdit") String titleUpdate,
+                           @RequestParam(name = "postEdit") String postUpdate) {
         Post post = postsDao.getOne(id);
         post.setId(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);
 
-        return "posts/show";
+        return "/edit" ;
 //        return "redirect:/posts";
 
     }
