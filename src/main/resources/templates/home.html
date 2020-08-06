@@ -6,17 +6,19 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>This is the home page!</h1>
-<h1 th:text="${cohort}"></h1>
-<h3>What cohort are you in?</h3>
-<form action="/" method="post">
-    <input id="cohort" name="cohort" type="text">
-    <button>Submit</button>
-</form>
-<hr>
-<form action="/roll-dice" method="get">
-    <button type="submit">Dice Game</button>
-</form>
-
+<div class="container p-5">
+<h1>Welcome!</h1>
+    <hr>
+    <h1 th:text="${cohort}"></h1>
+    <h3>What cohort are you in?</h3>
+    <form action="/" method="post">
+        <input id="cohort" name="cohort" type="text">
+        <button>Submit</button>
+    </form>
+    <hr>
+    <form action="/roll-dice" method="get">
+        <button type="submit">Dice Game</button>
+    </form>
+</div>
 </body>
 </html>
