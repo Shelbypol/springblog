@@ -12,6 +12,7 @@ describe posts;
 describe comments;
 describe users;
 describe tags;
+describe post_tag;
 
 select * from posts;
 select * from comments;

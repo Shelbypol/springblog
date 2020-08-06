@@ -7,23 +7,41 @@
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5 border-left">
-<a class="text-black" th:href="@{/posts}">back</a>
+    <a class="text-black" style="text-decoration: none; color:black;" th:href="@{/posts}">back</a>
     <hr>
 
+    <p style="font-weight: lighter">author: <span th:text="${post.getParentUser().getEmail()}"></span></p>
     <h2 th:text="${post.title}"></h2>
     <p th:text="${post.post}"></p>
     <hr>
-    <p>created by: <span th:text="${post.getParentUser().getEmail()}"></span></p>
-<!--    <p th:text="${post.getParentUser().getEmail()}"></p>-->
-    <br>
+
+
+    <!--    COMMENTS    -->
+    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#comments"
+            aria-expanded="false" aria-controls="collapseExample">
+        comments
+    </button>
+    <div class="collapse" id="comments">
+        <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+    </div>
+
+    <hr>
+
     <div class="d-inline">
         <!--    EDIT BTN    -->
-        <button class="d-inline bg-dark text-white" style="width:6em;"><a style="color: white;" th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a></button>
+        <button class="d-inline bg-dark text-white" style="width:6em;"><a style="color: white;"
+                                                                          th:href="@{/posts/edit/{id}(id=${id})}"
+                                                                          th:value="${id}">Edit</a></button>
 
         <!--    DELETE BTN    -->
         <form class="d-inline ml-3" action="/posts/show/${id}" method="post" style="width:6em;">
             <input type="hidden" th:value="${id}" name="deleteBtn">
-            <button class="bg-dark text-white" style="width:6em;" type="submit" onClick="return confirm('sure?')">Delete</button>
+            <button class="bg-dark text-white" style="width:6em;" type="submit" onClick="return confirm('sure?')">
+                Delete
+            </button>
         </form>
     </div>
 

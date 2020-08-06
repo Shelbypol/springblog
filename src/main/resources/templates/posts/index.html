@@ -7,8 +7,8 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<div class="container p-5 border-left">
-    <h3 class="border=">SpringBeeBlog</h3>
+<div class="container p-1 border-left">
+    <h3 class="pt-3 pb-2 pl-5">SpringBeeBlog</h3>
     <hr>
     <br>
 
@@ -20,25 +20,35 @@
             </a>
             <div class="card-body">
 
-<!--                <div class="d-inline"-->
-<!--                   th:if="${post.post} <= ${#strings.length(300)}">-->
-<!--                    <p th:text="${post.post}"></p>-->
-<!--                </div>-->
+                <!--                <div class="d-inline"-->
+                <!--                     th:if="${post.post} <= ${#strings.length(250)}">-->
+                <!--                    <p th:text="${post.post}"></p>-->
+                <!--                </div>-->
 
-<!--                <div class="d-inline"-->
-<!--                   th:unless="${post.post} > ${#strings.length(300)}">-->
-<!--                    <p th:text="${#strings.substring(post.post,0,300)}"></p>-->
-<!--                </div>-->
+                <!--                <div class="d-inline"-->
+                <!--                     th:unless="${post.post} > ${#strings.length(250)}">-->
+                <!--                    <p th:text="${#strings.substring(post.post,0,250)}"></p>-->
+                <!--                </div>-->
 
-                <p class="d-inline" th:text="${#strings.substring(post.post,0,300)}"></p>
+                <p class="d-inline" th:text="${#strings.substring(post.post,0,200)}"></p>
+
+<!--                <p class="d-line" th:text="${post.post}"></p>-->
                 <p class="d-inline">...</p>
-                <a class="d-block" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">
+                <br>
+                <a class="" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">
                     <button class="bg-dark text-white mt-2">view</button>
                 </a>
             </div>
+
+
+            <!--                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"-->
+            <!--                   aria-expanded="false" aria-controls="collapseExample">-->
+            <!--                    Link with href-->
+            <!--                </a>-->
+
+
         </div>
     </div>
-
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

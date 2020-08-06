@@ -6,7 +6,6 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<a class="text-black m-3" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">back</a>
 <div class="container p-5 border-left">
     <h2>Edit</h2>
     <hr>
@@ -21,6 +20,7 @@
             <textarea class="form-control" id="editPost" name="postEdit" th:text="${post.post}"></textarea>
         </div>
         <button class="bg-dark text-white" type="submit">Submit changes</button>
+        <a class="float-right" style="text-decoration: none; color:black" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">back</a>
     </form>
 
     <hr>
