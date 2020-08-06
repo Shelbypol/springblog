@@ -2,11 +2,11 @@ package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -15,8 +15,11 @@ public class PostController {
     //    dependency injection
     private final PostRepository postsDao;
 
-    public PostController(PostRepository postsDao) {
+    private final UserRepository userDao;
+
+    public PostController(PostRepository postsDao, UserRepository userDao) {
         this.postsDao = postsDao;
+        this.userDao = userDao;
     }
 
     //  ALL POSTS
@@ -73,6 +76,25 @@ public class PostController {
 
     }
 
+    //  CREATE POST
+    @GetMapping("/posts/create")
+    @ResponseBody
+    public String createPost() {
+
+        return "create";
+    }
+
+    //  CREATE POST
+    @PostMapping("/posts/create")
+    @ResponseBody
+    public String getPost() {
+        return null;
+    }
+
+
+
+
+
     //  SAVE POST
 //    @GetMapping("posts/save")
 //    public String save() {
@@ -90,19 +112,6 @@ public class PostController {
         return postsDao.findByTitle("Barneys").toString();
     }
 
-    //  CREATE POST
-    @GetMapping("/posts/create")
-    @ResponseBody
-    public String createPost() {
-        return "Create post";
-    }
-
-    //  CREATE POST
-    @PostMapping("/posts/create")
-    @ResponseBody
-    public String getPost() {
-        return null;
-    }
 
 
 }

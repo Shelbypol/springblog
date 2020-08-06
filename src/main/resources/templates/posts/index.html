@@ -10,6 +10,7 @@
 <!--<header th:replace="partials/partials :: header"/>-->
 
 <h1>index</h1>
+<a th:href="@{/posts/create}">Create Post</a>
 <hr>
 <ul th:each="post : ${posts}">
     <li th:text="${post.title}"></li>
