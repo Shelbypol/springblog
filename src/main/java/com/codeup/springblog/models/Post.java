@@ -39,6 +39,13 @@ public class Post {
         this.post = post;
     }
 
+//    Enter parent constructor
+    public Post(String title, String post ) {
+        this.title = title;
+        this.post = post;
+
+    }
+
     public Post() {
 
     }

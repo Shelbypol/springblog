@@ -6,9 +6,10 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="container p-5">
+<a class="text-black p-3" th:href="@{/posts}">back</a>
+<div class="container p-5 border-left">
     <h2>Create</h2>
-
+    <hr>
     <form th:action="@{'/posts/create'}" th:method="post" class="p-5">
         <div class="form-group">
             <label for="createTitle">Title</label>
@@ -18,7 +19,7 @@
             <label for="createBody">Body</label>
             <textarea class="form-control" id="createBody" name="createBody"></textarea>
         </div>
-        <button type="submit">Submit post</button>
+        <button class="bg-dark text-white" type="submit">Submit post</button>
     </form>
 
     <!--    CREATE POST FORM   -->

@@ -8,22 +8,40 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container p-5 border-left">
-    <h1>SpringBlog</h1>
+    <h3 class="border=">SpringBeeBlog</h3>
     <hr>
     <br>
 
-    <div>
-        <div th:each="post : ${posts}" class="card mb-5">
-            <div th:text="${post.title}" class="card-header bg-dark text-white"></div>
+    <div class="row d-flex justify-content-center ">
+        <div th:each="post : ${posts}" class="card col-md-5 ml-3 mr-3 mb-5">
+            <a style="color: black; text-decoration: none;" th:href="@{/posts/show/{id}(id=${post.id})}"
+               th:value="${post.id}">
+                <div th:text="${post.title}" class="card-header bg-dark text-white"></div>
+            </a>
             <div class="card-body">
-                <p th:text="${post.post}" class="card-text"></p>
-                <a th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">view</a>
+
+                <div class="d-inline"
+                   th:if="${post.post} <= ${#strings.length(300)}">
+                    <p th:text="${post.post}"></p>
+                </div>
+
+                <div class="d-inline"
+                   th:unless="${post.post} > ${#strings.length(300)}">
+                    <p th:text="${#strings.substring(post.post,0,300)}"></p>
+                </div>
+
+<!--                <p class="d-inline" th:text="${#strings.substring(post.post,0,300)}"></p>-->
+                <p class="d-inline">...</p>
+                <a class="d-block" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">
+                    <button class="bg-dark text-white mt-2">view</button>
+                </a>
             </div>
         </div>
     </div>
 
-
 </div>
+
 <footer th:replace="partials/footer :: footer"></footer>
+
 </body>
 </html>

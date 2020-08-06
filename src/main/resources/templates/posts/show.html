@@ -7,6 +7,7 @@
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5 border-left">
+<a class="text-black" th:href="@{/posts}">back</a>
     <hr>
 
     <h2 th:text="${post.title}"></h2>
@@ -17,12 +18,12 @@
     <br>
     <div class="d-inline">
         <!--    EDIT BTN    -->
-        <button class="d-inline" style="width:6em;"><a style="color: black;" th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a></button>
+        <button class="d-inline bg-dark text-white" style="width:6em;"><a style="color: white;" th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a></button>
 
         <!--    DELETE BTN    -->
         <form class="d-inline ml-3" action="/posts/show/${id}" method="post" style="width:6em;">
             <input type="hidden" th:value="${id}" name="deleteBtn">
-            <button style="width:6em;" type="submit" onClick="return confirm('sure?')">Delete</button>
+            <button class="bg-dark text-white" style="width:6em;" type="submit" onClick="return confirm('sure?')">Delete</button>
         </form>
     </div>
 

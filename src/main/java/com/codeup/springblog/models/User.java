@@ -21,7 +21,7 @@ public class User {
     @Column(length = 100, nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "parentUser")
+    @OneToMany(cascade = CascadeType.ALL ,mappedBy = "parentUser")
     private List<Post> posts;
 
     public User(long id, String username, String email, String password) {

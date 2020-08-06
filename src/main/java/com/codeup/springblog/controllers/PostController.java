@@ -38,7 +38,6 @@ public class PostController {
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
         model.addAttribute("post", indPost);
-
         return "posts/show";
     }
 
