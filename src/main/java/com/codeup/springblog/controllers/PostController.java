@@ -39,8 +39,6 @@ public class PostController {
         Post indPost = postsDao.getOne(id);
         model.addAttribute("post", indPost);
 
-
-
         return "posts/show";
     }
 

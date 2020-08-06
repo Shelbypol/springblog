@@ -14,7 +14,7 @@
 
     <div>
         <div th:each="post : ${posts}" class="card mb-5">
-            <div th:text="${post.title}" class="card-header"></div>
+            <div th:text="${post.title}" class="card-header bg-dark text-white"></div>
             <div class="card-body">
                 <p th:text="${post.post}" class="card-text"></p>
                 <a th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">view</a>
