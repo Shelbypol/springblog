@@ -33,23 +33,16 @@ public class Post {
 
 
 
-
-
-
     public Post(long id, String title, String post) {
         this.id= id;
         this.title = title;
         this.post = post;
     }
 
-//    public Post(String title, String post) {
-//        this.title = title;
-//        this.post = post;
-//    }
-
     public Post() {
 
     }
+
 
     public long getId() {
         return id;
@@ -74,6 +67,23 @@ public class Post {
     public void setPost(String post) {
         this.post = post;
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public User getParentUser() {
+        return parentUser;
+    }
+
+    public void setParentUser(User parentUser) {
+        this.parentUser = parentUser;
+    }
+
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -66,7 +67,7 @@ public class PostController {
                            @RequestParam(name = "titleEdit") String titleUpdate,
                            @RequestParam(name = "postEdit") String postUpdate) {
         Post post = postsDao.getOne(id);
-        post.setId(id);
+//        post.setId(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);
@@ -88,9 +89,11 @@ public class PostController {
     @PostMapping("/posts/create")
     public String getPost(@RequestParam(name = "createTitle") String createTitle,
                           @RequestParam(name = "createBody") String createBody) {
+        User user = userDao.getOne(1L);
         Post post = new Post();
         post.setTitle(createTitle);
         post.setPost(createBody);
+        post.setParentUser(user);
         postsDao.save(post);
 
     return "redirect:/posts";

@@ -11,6 +11,9 @@
 
 <h2 th:text="${post.title}"></h2>
 <p th:text="${post.post}"></p>
+<hr>
+<p>created by:</p>
+<p th:text="${post.getParentUser()}"></p>
 
 <!--    EDIT BTN    -->
 <a th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a>
