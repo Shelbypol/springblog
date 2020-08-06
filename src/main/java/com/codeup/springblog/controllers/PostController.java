@@ -37,9 +37,8 @@ public class PostController {
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
-//        String user = indPost.getParentUser().getEmail();
         model.addAttribute("post", indPost);
-//        model.addAttribute("userEmail", user);
+
 
 
         return "posts/show";
@@ -57,24 +56,22 @@ public class PostController {
     @GetMapping("posts/edit/{id}")
     public String editPost(@PathVariable long id, Model model) {
         Post indPost = postsDao.getOne(id);
+        model.addAttribute("post", indPost);
 
-        model.addAttribute("title", indPost.getTitle());
-        model.addAttribute("body", indPost.getPost());
         return "posts/edit";
     }
 
     @PostMapping("/posts/edit/{id}")
-    public String editPost(@PathVariable(value = "id") long id,
+    public String editPost(@PathVariable long id,
                            @RequestParam(name = "titleEdit") String titleUpdate,
                            @RequestParam(name = "postEdit") String postUpdate) {
-        Post post = postsDao.getOne(id);
-//        post.setId(id);
+        System.out.println("edit");
+        Post post = postsDao.findById(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);
 
-        return "posts/edit";
-//        return "redirect:/posts";
+        return "redirect:/posts";
 
     }
 

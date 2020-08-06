@@ -7,23 +7,24 @@
 
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5 border-left">
-    <h1>Show</h1>
     <hr>
 
     <h2 th:text="${post.title}"></h2>
     <p th:text="${post.post}"></p>
     <hr>
-    <p>created by:</p>
-    <p th:text="${post.getParentUser().getEmail()}"></p>
+    <p>created by: <span th:text="${post.getParentUser().getEmail()}"></span></p>
+<!--    <p th:text="${post.getParentUser().getEmail()}"></p>-->
+    <br>
+    <div class="d-inline">
+        <!--    EDIT BTN    -->
+        <button class="d-inline" style="width:6em;"><a style="color: black;" th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a></button>
 
-    <!--    EDIT BTN    -->
-    <a th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a>
-
-    <!--    DELETE BTN    -->
-    <form action="/posts/show/${id}" method="post">
-        <input type="hidden" th:value="${id}" name="deleteBtn">
-        <button type="submit" onClick="return confirm('sure?')">Delete</button>
-    </form>
+        <!--    DELETE BTN    -->
+        <form class="d-inline ml-3" action="/posts/show/${id}" method="post" style="width:6em;">
+            <input type="hidden" th:value="${id}" name="deleteBtn">
+            <button style="width:6em;" type="submit" onClick="return confirm('sure?')">Delete</button>
+        </form>
+    </div>
 
 
 </div>

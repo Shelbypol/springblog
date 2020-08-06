@@ -9,15 +9,20 @@
 
 <div class="container p-5 border-left">
     <h1>SpringBlog</h1>
-    <a th:href="@{/posts/create}">Create Post</a>
     <hr>
-    <ul th:each="post : ${posts}">
-        <li th:text="${post.title}"></li>
-        <li th:text="${post.post}"></li>
-        <li>
-            <a th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">View</a>
-        </li>
-    </ul>
+    <br>
+
+    <div>
+        <div th:each="post : ${posts}" class="card mb-5">
+            <div th:text="${post.title}" class="card-header"></div>
+            <div class="card-body">
+                <p th:text="${post.post}" class="card-text"></p>
+                <a th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">view</a>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <footer th:replace="partials/footer :: footer"></footer>
 </body>
