@@ -37,6 +37,7 @@ public class Post {
     )
     private List<Tag> tags;
 
+    public Post(){}
 
     public Post(long id, String title, String post) {
         this.id= id;
@@ -44,13 +45,20 @@ public class Post {
         this.post = post;
     }
 
-//    Enter parent constructor
-    public Post(String title, String post ) {
+        public Post(long id, String title, String post, User parentUser) {
+        this.id= id;
         this.title = title;
         this.post = post;
+        this.parentUser = parentUser;
     }
-
-    public Post() {}
+//
+////    Enter parent constructor
+//    public Post(String title, String post ) {
+//        this.title = title;
+//        this.post = post;
+//    }
+//
+//    public Post() {}
 
 
 

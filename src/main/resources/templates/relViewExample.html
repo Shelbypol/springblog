@@ -13,11 +13,10 @@
     <p th:text="${post.post}"></p>
 
     <ul>
-        <li th:each="comment : ${posts.comments}" th:text="${comment.content}"></li>
+        <li th:each="comment : ${comments}" th:text="${comments.content}"></li>
     </ul>
 
 </div>
-
 
 </body>
 </html>

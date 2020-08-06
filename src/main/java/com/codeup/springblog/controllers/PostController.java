@@ -29,7 +29,6 @@ public class PostController {
 
         List<Post> myPost = postsDao.findAll();
         model.addAttribute("posts", myPost);
-
         return "posts/index";
     }
 
@@ -37,7 +36,12 @@ public class PostController {
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
+        Post comments = (Post) postsDao.getOne(id).getComments();
+//        String comment = indPost.getComments().toString();
+
         model.addAttribute("post", indPost);
+//        model.addAttribute("comment", comments);
+
         return "posts/show";
     }
 

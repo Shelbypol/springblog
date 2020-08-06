@@ -15,7 +15,6 @@
     <p th:text="${post.post}"></p>
     <hr>
 
-
     <!--    COMMENTS    -->
     <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#comments"
             aria-expanded="false" aria-controls="collapseExample">
@@ -23,6 +22,9 @@
     </button>
     <div class="collapse" id="comments">
         <div class="card card-body">
+            <ul>
+                <li th:each="comment : ${post}" th:text="${comment.getParentUser()}"></li>
+            </ul>
             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
             Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
         </div>
