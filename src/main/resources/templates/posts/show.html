@@ -6,6 +6,7 @@
 <body>
 
 <nav th:replace="partials/navbar :: navbar"></nav>
+<div class="container p-5">
 <h1>Show</h1>
 <hr>
 
@@ -13,7 +14,7 @@
 <p th:text="${post.post}"></p>
 <hr>
 <p>created by:</p>
-<p th:text="${post.getParentUser()}"></p>
+<p th:text="${post.getParentUser().getEmail()}"></p>
 
 <!--    EDIT BTN    -->
 <a th:href="@{/posts/edit/{id}(id=${id})}" th:value="${id}">Edit</a>
@@ -24,8 +25,9 @@
     <button type="submit" onClick="return confirm('sure?')">Delete</button>
 </form>
 
-<hr>
 
+</div>
 <footer th:replace="partials/footer :: footer"></footer>
+
 </body>
 </html>

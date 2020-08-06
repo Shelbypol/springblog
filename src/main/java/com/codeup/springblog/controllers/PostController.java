@@ -37,9 +37,10 @@ public class PostController {
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
+//        String user = indPost.getParentUser().getEmail();
         model.addAttribute("post", indPost);
-//        model.addAttribute("title", indPost.getTitle());
-//        model.addAttribute("body", indPost.getPost());
+//        model.addAttribute("userEmail", user);
+
 
         return "posts/show";
     }
