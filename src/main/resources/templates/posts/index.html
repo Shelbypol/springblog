@@ -20,17 +20,17 @@
             </a>
             <div class="card-body">
 
-                <div class="d-inline"
-                   th:if="${post.post} <= ${#strings.length(300)}">
-                    <p th:text="${post.post}"></p>
-                </div>
+<!--                <div class="d-inline"-->
+<!--                   th:if="${post.post} <= ${#strings.length(300)}">-->
+<!--                    <p th:text="${post.post}"></p>-->
+<!--                </div>-->
 
-                <div class="d-inline"
-                   th:unless="${post.post} > ${#strings.length(300)}">
-                    <p th:text="${#strings.substring(post.post,0,300)}"></p>
-                </div>
+<!--                <div class="d-inline"-->
+<!--                   th:unless="${post.post} > ${#strings.length(300)}">-->
+<!--                    <p th:text="${#strings.substring(post.post,0,300)}"></p>-->
+<!--                </div>-->
 
-<!--                <p class="d-inline" th:text="${#strings.substring(post.post,0,300)}"></p>-->
+                <p class="d-inline" th:text="${#strings.substring(post.post,0,300)}"></p>
                 <p class="d-inline">...</p>
                 <a class="d-block" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">
                     <button class="bg-dark text-white mt-2">view</button>

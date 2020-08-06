@@ -6,7 +6,7 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<a class="text-black p-3" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">back</a>
+<a class="text-black m-3" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">back</a>
 <div class="container p-5 border-left">
     <h2>Edit</h2>
     <hr>

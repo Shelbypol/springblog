@@ -11,6 +11,7 @@ show tables;
 describe posts;
 describe comments;
 describe users;
+describe tags;
 
 select * from posts;
 select * from comments;

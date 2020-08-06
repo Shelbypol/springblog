@@ -23,14 +23,19 @@ public class Post {
     private String post;
 
     @OneToMany(mappedBy = "parentPost")
-//    @JsonManagedReference
-//    @JsonBackReference
     private List<Comment> comments;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User parentUser;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "post_tag",
+            joinColumns={@JoinColumn(name="post_id")},
+            inverseJoinColumns = {@JoinColumn(name="tag_id")}
+    )
+    private List<Tag> tags;
 
 
     public Post(long id, String title, String post) {
@@ -43,12 +48,10 @@ public class Post {
     public Post(String title, String post ) {
         this.title = title;
         this.post = post;
-
     }
 
-    public Post() {
+    public Post() {}
 
-    }
 
 
     public long getId() {
@@ -91,6 +94,13 @@ public class Post {
         this.parentUser = parentUser;
     }
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
     @Override
     public String toString() {
