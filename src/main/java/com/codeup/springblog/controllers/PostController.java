@@ -43,7 +43,7 @@ public class PostController {
         return "posts/show";
     }
 
-//    DELETE POST
+    //    DELETE POST
     @PostMapping("/posts/show/{id}")
     public String deletePost(@RequestParam(name = "deleteBtn") long id) {
         postsDao.deleteById(id);
@@ -51,14 +51,14 @@ public class PostController {
         return "redirect:/posts";
     }
 
-//      EDIT POST
+    //      EDIT POST
     @GetMapping("posts/edit/{id}")
     public String editPost(@PathVariable long id, Model model) {
         Post indPost = postsDao.getOne(id);
 
         model.addAttribute("title", indPost.getTitle());
         model.addAttribute("body", indPost.getPost());
-        return "/edit";
+        return "posts/edit";
     }
 
     @PostMapping("/posts/edit/{id}")
@@ -71,25 +71,31 @@ public class PostController {
         post.setPost(postUpdate);
         postsDao.save(post);
 
-        return "/edit" ;
+        return "posts/edit";
 //        return "redirect:/posts";
 
     }
 
     //  CREATE POST
     @GetMapping("/posts/create")
-    @ResponseBody
     public String createPost() {
 
-        return "create";
+
+        return "posts/create";
     }
 
     //  CREATE POST
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String getPost() {
-        return null;
+    public String getPost(@RequestParam(name = "createTitle") String createTitle,
+                          @RequestParam(name = "createBody") String createBody) {
+        Post post = new Post();
+        post.setTitle(createTitle);
+        post.setPost(createBody);
+        postsDao.save(post);
+
+    return "redirect:/posts";
     }
+
 
 
 
@@ -106,11 +112,11 @@ public class PostController {
 //    }
 
     //  FIND POST
-    @GetMapping("posts/test")
-    @ResponseBody
-    public String getTestPost() {
-        return postsDao.findByTitle("Barneys").toString();
-    }
+//    @GetMapping("posts/test")
+//    @ResponseBody
+//    public String getTestPost() {
+//        return postsDao.findByTitle("Barneys").toString();
+//    }
 
 
 

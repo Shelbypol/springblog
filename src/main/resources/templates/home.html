@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+<head th:include="partials/head :: head">
+    <title>Home</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <h1>This is the home page!</h1>
 <h1 th:text="${cohort}"></h1>
 <h3>What cohort are you in?</h3>

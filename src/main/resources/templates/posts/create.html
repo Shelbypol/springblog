@@ -2,24 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head th:include="partials/head :: head">
-    <title>Edit Post</title>
+    <title>Create Post</title>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h2>Create</h2>
 
-<!--    CREATE POST FORM   -->
-<form th:action="@{'/posts/edit/' + {id}}" th:method="post">
+<form th:action="@{'/posts/create'}" th:method="post" class="p-5">
     <div class="form-group">
-        <label for="editTitle">Edit Title</label>
-        <input type="text" class="form-control" id="editTitle" name="titleEdit" th:value="${title}">
+        <label for="createTitle">Title</label>
+        <input type="text" class="form-control" id="createTitle" name="createTitle">
     </div>
     <div class="form-group">
-        <label for="editPost">Edit Body</label>
-        <textarea class="form-control" id="editPost" name="postEdit"  th:text="${body}"></textarea>
+        <label for="createBody">Body</label>
+        <textarea class="form-control" id="createBody" name="createBody"></textarea>
     </div>
-    <button type="submit">Submit changes</button>
+    <button type="submit">Submit post</button>
 </form>
+
+<!--    CREATE POST FORM   -->
+
 
 
 <hr>
