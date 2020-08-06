@@ -59,7 +59,7 @@ public class PostController {
     }
 
     @PostMapping("/posts/edit/{id}")
-    public String editPost(@PathVariable long id,
+    public String editPost(@PathVariable(value = "id") long id,
                            @RequestParam(name = "titleEdit") String titleUpdate,
                            @RequestParam(name = "postEdit") String postUpdate) {
         Post post = postsDao.getOne(id);

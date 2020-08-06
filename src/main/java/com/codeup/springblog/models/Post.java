@@ -2,6 +2,9 @@ package com.codeup.springblog.models;
 
 //import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,7 +23,16 @@ public class Post {
     private String post;
 
     @OneToMany(mappedBy = "parentPost")
+//    @JsonManagedReference
+//    @JsonBackReference
     private List<Comment> comments;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User parentUser;
+
+
+
 
 
 
@@ -63,12 +75,12 @@ public class Post {
         this.post = post;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Post{" +
-//                "id=" + id +
-//                ", title='" + title + '\'' +
-//                ", post='" + post + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", post='" + post + '\'' +
+                '}';
+    }
 }
