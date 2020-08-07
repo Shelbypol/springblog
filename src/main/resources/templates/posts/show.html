@@ -20,13 +20,41 @@
             aria-expanded="false" aria-controls="collapseExample">
         comments
     </button>
+
+
+    <!-- ADD COMMENT -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModalCenter">
+        Add comment
+    </button>
+
+    <!-- ADD COMMENT MODAL -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <form th:action="@{/posts/show/{id}(id=${post.id})}" th:method="post" class="p-1">
+                        <div class="form-group">
+                            <label for="createComment"></label>
+                            <textarea class="form-control" id="createComment" name="createComment"></textarea>
+                        </div>
+                        <button class="bg-dark text-white" style="font-weight: lighter;" type="submit">comment</button>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    LOOP DISPLAY COMMENTS    -->
     <div class="collapse" id="comments">
-        <div class="card card-body">
-            <ul>
-                <li th:each="comment : ${post}" th:text="${comment.getParentUser()}"></li>
-            </ul>
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        <div class="card card-body" th:each="comment : ${comments}">
+            <p th:text="${comment.content}"></p>
         </div>
     </div>
 

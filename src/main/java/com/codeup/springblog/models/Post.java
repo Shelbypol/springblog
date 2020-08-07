@@ -25,6 +25,10 @@ public class Post {
     @OneToMany(mappedBy = "parentPost")
     private List<Comment> comments;
 
+//User
+//    @OneToMany(cascade = CascadeType.ALL ,mappedBy = "parentUser")
+//    private List<Post> posts;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User parentUser;
