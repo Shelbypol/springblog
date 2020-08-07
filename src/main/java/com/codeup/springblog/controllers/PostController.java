@@ -1,9 +1,12 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.models.Comment;
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
+import com.codeup.springblog.repositories.CommentRepository;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +18,13 @@ public class PostController {
 
     //    dependency injection
     private final PostRepository postsDao;
-
     private final UserRepository userDao;
+    private final CommentRepository commentDao;
 
-    public PostController(PostRepository postsDao, UserRepository userDao) {
+    public PostController(PostRepository postsDao, UserRepository userDao, CommentRepository commentDao) {
         this.postsDao = postsDao;
         this.userDao = userDao;
+        this.commentDao = commentDao;
     }
 
     //  ALL POSTS
@@ -36,22 +40,23 @@ public class PostController {
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
-        Post comments = (Post) postsDao.getOne(id).getComments();
+        Comment indComment = commentDao.getOne(id);
+//        Post comments = (Post) postsDao.getOne(id).getComments();
 //        String comment = indPost.getComments().toString();
 
         model.addAttribute("post", indPost);
-//        model.addAttribute("comment", comments);
+        model.addAttribute("comments", indComment);
 
         return "posts/show";
     }
 
     //    DELETE POST
-    @PostMapping("/posts/show/{id}")
-    public String deletePost(@RequestParam(name = "deleteBtn") long id) {
-        postsDao.deleteById(id);
-
-        return "redirect:/posts";
-    }
+//    @PostMapping("/posts/show/{id}")
+//    public String deletePost(@RequestParam(name = "deleteBtn") long id) {
+//        postsDao.deleteById(id);
+//
+//        return "redirect:/posts";
+//    }
 
     //      EDIT POST
     @GetMapping("posts/edit/{id}")
@@ -97,8 +102,17 @@ public class PostController {
     }
 
 
+    //  CREATE COMMENT
+    @PostMapping("/posts/show/{id}")
+    public String getPost(@PathVariable(value = "id") long id, @RequestParam(name = "createComment") String createComment){
+        Post post = postsDao.getOne(id);
+        Comment comment = new Comment();
+        comment.setContent(createComment);
+        comment.setParentPost(post);
+        commentDao.save(comment);
 
-
+        return "redirect:/posts";
+    }
 
 
     //  SAVE POST
