@@ -7,16 +7,16 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<div class="container p-1 border-left">
+<div class="container m-auto border-left">
     <h3 class="pt-3 pb-2 pl-5">SpringBeeBlog</h3>
     <hr>
     <br>
 
     <div class="row d-flex justify-content-center ">
-        <div th:each="post : ${posts}" class="card col-md-5 ml-3 mr-3 mb-5">
+        <div th:each="post : ${posts}" class="card col-md-5 ml-3 mr-3 mb-5 shadow-sm p-3 mb-5 bg-white rounded">
             <a style="color: black; text-decoration: none;" th:href="@{/posts/show/{id}(id=${post.id})}"
                th:value="${post.id}">
-                <div th:text="${post.title}" class="card-header bg-dark text-white"></div>
+                <div th:text="${post.title}" class="card-header bg-dark text-white border-bottom-5 border-warning" style="border-left: 8px solid orange; " ></div>
             </a>
             <div class="card-body">
 
@@ -30,9 +30,9 @@
                 <!--                    <p th:text="${#strings.substring(post.post,0,250)}"></p>-->
                 <!--                </div>-->
 
-<!--                <p class="d-inline" th:text="${#strings.substring(post.post,0,200)}"></p>-->
+                <p class="d-inline" th:text="${#strings.substring(post.post,0,100)}"></p>
 
-                <p class="d-line" th:text="${post.post}"></p>
+<!--                <p class="d-line" th:text="${post.post}"></p>-->
                 <p class="d-inline">...</p>
                 <br>
                 <a class="" th:href="@{/posts/show/{id}(id=${post.id})}" th:value="${post.id}">

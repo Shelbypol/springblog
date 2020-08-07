@@ -29,7 +29,8 @@
     </button>
 
     <!-- ADD COMMENT MODAL -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -51,10 +52,13 @@
         </div>
     </div>
 
-<!--    LOOP DISPLAY COMMENTS    -->
+    <!--    LOOP DISPLAY COMMENTS    -->
     <div class="collapse" id="comments">
         <div class="card card-body" th:each="comment : ${comments}">
             <p th:text="${comment.content}"></p>
+            <p style="font-weight: lighter;">
+                ~ <span style="font-weight: lighter;" th:text="${comment.getParentPost().getParentUser().getEmail()}"></span>
+            </p>
         </div>
     </div>
 
