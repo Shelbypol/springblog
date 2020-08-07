@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml" lang="en">
 
 <head th:include="partials/head :: head">
     <title>Home</title>
@@ -7,67 +7,99 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5">
-    <h1>Welcome!</h1>
+    <!--    <h1>Welcome!</h1>-->
+    <!--    <h1 th:text="${cohort}"></h1>-->
+    <!--    <h3>What cohort are you in?</h3>-->
+    <!--    <form action="/" method="post" class="d-inline">-->
+    <!--        <label for="cohort"></label>-->
+    <!--        <input id="cohort" name="cohort" type="text">-->
+    <!--        <button>Submit</button>-->
+    <!--    </form>-->
+
+    <div class="row">
+        <div class="col-md-4 text-secondary">you like jazz?</div>
+        <div class="col-md-4 offset-md-4 text-secondary">no bears allowed!</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-3 text-secondary"> welcome to the hive!</div>
+        <div class="col-md-2 offset-md-5 text-secondary">take the sting out of blogging!</div>
+    </div>
+    <br>
     <hr>
-    <h1 th:text="${cohort}"></h1>
-    <h3>What cohort are you in?</h3>
-    <form action="/" method="post" class="d-inline">
-        <label for="cohort"></label>
-        <input id="cohort" name="cohort" type="text">
-        <button>Submit</button>
-    </form>
 
+    <div class="d-flex justify-content-center" style="width: 100%;">
+        <!-- LOGIN MODEL -->
+        <!-- Button trigger modal -->
+        <button style="border-left: 4px solid orange;" type="button" class="ml-5 btn btn-dark d-inline"
+                data-toggle="modal"
+                data-target="#exampleModalCenter">
+            Login
+        </button>
 
-    <!-- LOGIN MODEL -->
-    <!-- Button trigger modal -->
-    <button style="border-left: 4px solid orange;" type="button" class="ml-5 btn btn-dark d-inline" data-toggle="modal"
-            data-target="#exampleModalCenter">
-        Login
-    </button>
-
-    <!-- LOGIN MODAL -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-
-                    <form  class="p-1">
-
-                        <div class="form-group">
-                            <label for="loginUsername">Username</label>
-                            <input th:type="text" class="form-control" id="loginUsername">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="loginPassword">Password</label>
-                            <input th:type="text" class="form-control" id="loginPassword">
-                        </div>
-
-                        <button class="bg-dark text-white" style="border-left: 4px solid orange; font-weight: lighter;"
-                                type="submit">Login
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
-                    </form>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form class="p-1">
+
+                            <div class="form-group">
+                                <label for="loginUsername">Username</label>
+                                <input th:type="text" class="form-control" id="loginUsername">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input th:type="text" class="form-control" id="loginPassword">
+                            </div>
+
+                            <button class="bg-dark text-white"
+                                    style="border-left: 4px solid orange; font-weight: lighter;"
+                                    type="submit">Login
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <img class="" src="https://ih1.redbubble.net/image.315734074.6116/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg"
+             width="100px" height="150px" alt="">
+
+
+        <a class="d-inline" th:href="@{/users/create}">
+            <button style="border-left: 4px solid orange;" type="button" class="btn btn-dark" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+                Register
+            </button>
+        </a>
     </div>
 
-    <a class="d-inline" th:href="@{/users/create}">
-        <button style="border-left: 4px solid orange;" type="button" class="btn btn-dark" data-toggle="modal"
-                data-target="#exampleModalCenter">
-            Register
-        </button>
-    </a>
-
     <hr>
+
+    <br>
+    <div class="row">
+        <div class="col-md-4 text-secondary">watchh thisss!</div>
+        <div class="col-md-4 offset-md-4 text-secondary">why do you fly everywhere?</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-2 text-secondary">is that fuzz gel?</div>
+        <div class="col-md-4 offset-md-5 text-secondary">take the sting out of blogging!</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-secondary">we paid good money for those stairs!</div>
+    </div>
+
+
 </div>
 </body>
 </html>
