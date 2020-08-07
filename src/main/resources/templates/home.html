@@ -3,10 +3,17 @@
 
 <head th:include="partials/head :: head">
     <title>Home</title>
+
+    <style>
+        nav{
+            height: 70px!important;
+        }
+    </style>
+
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="container p-5">
+<div class="container p-5" style="margin-top: -5%">
     <!--    <h1>Welcome!</h1>-->
     <!--    <h1 th:text="${cohort}"></h1>-->
     <!--    <h3>What cohort are you in?</h3>-->
@@ -17,20 +24,26 @@
     <!--    </form>-->
 
     <div class="row">
-        <div class="col-md-4 text-secondary">you like jazz?</div>
-        <div class="col-md-4 offset-md-4 text-secondary">no bears allowed!</div>
+        <div class="col-md-4" style="color: #D8D8D8;">you like jazz?</div>
+        <div class="col-md-4 offset-md-4" style="color: #D8D8D8;">bee-men</div>
     </div>
     <div class="row">
-        <div class="col-md-3 offset-md-3 text-secondary"> welcome to the hive!</div>
-        <div class="col-md-2 offset-md-5 text-secondary">take the sting out of blogging!</div>
+        <div class="col-md-3 offset-md-3" style="color: #D8D8D8;">buzz, buzz</div>
+        <div class="col-md-2 offset-md-5"  style="color: #D8D8D8;">black and yellow</div>
     </div>
     <br>
-    <hr>
+<!--    <hr>-->
+    <div class="row">
+        <div class="col-md-2" style="color: #D8D8D8;">they call it a crumb</div>
+    </div>
+    <div class="row float-right">
+        <div class="col-md-11" style="color: #D8D8D8;">honex</div>
+    </div>
 
     <div class="d-flex justify-content-center" style="width: 100%;">
         <!-- LOGIN MODEL -->
         <!-- Button trigger modal -->
-        <button style="border-left: 4px solid orange;" type="button" class="ml-5 btn btn-dark d-inline"
+        <button style="border-left: 4px solid orange; z-index: 1;" type="button" class="ml-5 btn btn-dark d-inline"
                 data-toggle="modal"
                 data-target="#exampleModalCenter">
             Login
@@ -72,8 +85,8 @@
             </div>
         </div>
 
-        <img class="" src="https://ih1.redbubble.net/image.315734074.6116/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg"
-             width="100px" height="150px" alt="">
+        <img class="sticky" style="z-index:100;" src="https://ih1.redbubble.net/image.315734074.6116/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg"
+             width="150px" height="200px" alt="">
 
 
         <a class="d-inline" th:href="@{/users/create}">
@@ -83,20 +96,18 @@
             </button>
         </a>
     </div>
-
-    <hr>
+    <div class="row">
+        <div class="col-md-3 offset-md-2" style="color: #D8D8D8; margin-top: -5%;">is that fuzz gel?</div>
+    </div>
+<!--    <hr>-->
 
     <br>
     <div class="row">
-        <div class="col-md-4 text-secondary">watchh thisss!</div>
-        <div class="col-md-4 offset-md-4 text-secondary">why do you fly everywhere?</div>
+        <div class="col-md-4" style="color: #D8D8D8;">watchh thisss!</div>
+        <div class="col-md-4 offset-md-4" style="color: #D8D8D8;">why do you fly everywhere?</div>
     </div>
     <div class="row">
-        <div class="col-md-3 offset-md-2 text-secondary">is that fuzz gel?</div>
-        <div class="col-md-4 offset-md-5 text-secondary">take the sting out of blogging!</div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 offset-md-3 text-secondary">we paid good money for those stairs!</div>
+        <div class="col-md-6 offset-md-3" style="color: #D8D8D8;">we paid good money for those stairs!</div>
     </div>
 
 

@@ -6,6 +6,7 @@ import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.CommentRepository;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import com.codeup.springblog.services.EmailService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class PostController {
     private final PostRepository postsDao;
     private final UserRepository userDao;
     private final CommentRepository commentDao;
+    private final EmailService emailService;
 
     public PostController(PostRepository postsDao, UserRepository userDao, CommentRepository commentDao) {
         this.postsDao = postsDao;
