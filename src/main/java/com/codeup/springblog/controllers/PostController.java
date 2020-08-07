@@ -41,6 +41,10 @@ public class PostController {
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
         Comment indComment = commentDao.getOne(id);
+
+//        Comment indComment = commentDao.;
+//        indComment.setParentPost(indPost);
+
 //        Post comments = (Post) postsDao.getOne(id).getComments();
 //        String comment = indPost.getComments().toString();
 
