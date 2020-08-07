@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <title>Navbar</title>
 </head>
-<body>
+<body style="padding-top: 70px;">
 
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom-5 shadow-sm p-3 mb-5" style="border-bottom: 5px solid orange;">
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom-5 shadow-sm p-3 mb-5 fixed-top" style="border-bottom: 5px solid orange;">
     <a class="navbar-brand" style="font-weight: lighter" th:href="@{/}">
-        <img src="../img/beeImg.jpg" alt="">
-        SpringBeeBlog Loblaw's Law Blog</a>
+        SpringBeeBlog Benson At Law</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" style="margin-left: 60%;" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/posts}">Posts</a>
