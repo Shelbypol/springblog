@@ -6,10 +6,10 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="container p-5 border-left">
-    <h2>Create</h2>
+<div class="container p-5 border-left" style="margin-top: -5%;">
+    <h2>Create Post</h2>
     <hr>
-    <form th:action="@{'/posts/create'}" th:method="post" class="p-5">
+    <form th:action="@{'/posts/create'}" th:method="post" class="p-5" style="margin-top: -5%;">
         <div class="form-group">
             <label for="createTitle">Title</label>
             <input type="text" class="form-control" id="createTitle" name="createTitle">

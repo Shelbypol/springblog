@@ -6,11 +6,11 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="container p-5 border-left">
-    <h2>Edit</h2>
+<div class="container p-5 border-left" style="margin-top: -5%;">
+    <h2>Edit Post</h2>
     <hr>
     <!--    EDIT FORM   -->
-    <form th:action="@{/posts/edit/{id}(id=${post.id})}" th:method="post" class="p-5">
+    <form th:action="@{/posts/edit/{id}(id=${post.id})}" th:method="post" class="p-5" style="margin-top: -5%;">
         <div class="form-group">
             <label for="editTitle">Edit Title</label>
             <input type="text" class="form-control" id="editTitle" name="titleEdit" th:value="${post.title}">
