@@ -36,20 +36,21 @@ public class PostController {
         return "posts/index";
     }
 
-    //  IND POST VIEW
+//    @GetMapping(value = "/posts/show/{id}", params = "id")
+//        private List<Comment> getComments(@PathVariable long id, ) {
+//
+//        commentDao.getOne(id).getContent();
+//    }
+
+    //  IND POST VIEW && GET COMMENTS
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
-        Comment indComment = commentDao.getOne(id);
 
-//        Comment indComment = commentDao.;
-//        indComment.setParentPost(indPost);
+        List<Comment> getComments = postsDao.getOne(id).getComments();
 
-//        Post comments = (Post) postsDao.getOne(id).getComments();
-//        String comment = indPost.getComments().toString();
-
+        model.addAttribute("comments", getComments);
         model.addAttribute("post", indPost);
-        model.addAttribute("comments", indComment);
 
         return "posts/show";
     }
@@ -102,13 +103,13 @@ public class PostController {
         post.setParentUser(user);
         postsDao.save(post);
 
-    return "redirect:/posts";
+        return "redirect:/posts";
     }
 
 
     //  CREATE COMMENT
     @PostMapping("/posts/show/{id}")
-    public String getPost(@PathVariable(value = "id") long id, @RequestParam(name = "createComment") String createComment){
+    public String getPost(@PathVariable(value = "id") long id, @RequestParam(name = "createComment") String createComment) {
         Post post = postsDao.getOne(id);
         Comment comment = new Comment();
         comment.setContent(createComment);
@@ -135,7 +136,6 @@ public class PostController {
 //    public String getTestPost() {
 //        return postsDao.findByTitle("Barneys").toString();
 //    }
-
 
 
 }

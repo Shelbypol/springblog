@@ -38,7 +38,7 @@ VALUES
 ('comment 3', 1),
 ('comment 4', 2),
 ('comment 5', 2),
-('comment 6', 3)
+('comment 6', 3);
 
 
 insert into users (id, username, email, password) values (1, 'rpermain0', 'cmouat0@disqus.com', 'Jz2o5SVqbqlL');
