@@ -7,14 +7,66 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container p-5">
-<h1>Welcome!</h1>
+    <h1>Welcome!</h1>
     <hr>
     <h1 th:text="${cohort}"></h1>
     <h3>What cohort are you in?</h3>
-    <form action="/" method="post">
+    <form action="/" method="post" class="d-inline">
+        <label for="cohort"></label>
         <input id="cohort" name="cohort" type="text">
         <button>Submit</button>
     </form>
+
+
+    <!-- LOGIN MODEL -->
+    <!-- Button trigger modal -->
+    <button style="border-left: 4px solid orange;" type="button" class="ml-5 btn btn-dark d-inline" data-toggle="modal"
+            data-target="#exampleModalCenter">
+        Login
+    </button>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form  class="p-1">
+
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input th:type="text" class="form-control" id="loginUsername">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input th:type="text" class="form-control" id="loginPassword">
+                        </div>
+
+                        <button class="bg-dark text-white" style="border-left: 4px solid orange; font-weight: lighter;"
+                                type="submit">Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="d-inline" th:href="@{/users/create}">
+        <button style="border-left: 4px solid orange;" type="button" class="btn btn-dark" data-toggle="modal"
+                data-target="#exampleModalCenter">
+            Register
+        </button>
+    </a>
+
     <hr>
 </div>
 </body>

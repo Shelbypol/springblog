@@ -58,7 +58,7 @@ public class PostController {
         comment.setParentPost(post);
         commentDao.save(comment);
 
-        return "redirect:/posts";
+        return "redirect:/posts/show/" + id;
     }
 
     //        DELETE POST
@@ -83,12 +83,12 @@ public class PostController {
                            @RequestParam(name = "titleEdit") String titleUpdate,
                            @RequestParam(name = "postEdit") String postUpdate) {
         System.out.println("edit");
-        Post post = postsDao.findById(id);
+        Post post = postsDao.getOne(id);
         post.setTitle(titleUpdate);
         post.setPost(postUpdate);
         postsDao.save(post);
 
-        return "redirect:/posts";
+        return "redirect:/posts/show/" + id;
 
     }
 
@@ -119,7 +119,6 @@ public class PostController {
 
         return "users/create";
     }
-
 
     @PostMapping("users/create")
     public String createUser(@ModelAttribute User user){

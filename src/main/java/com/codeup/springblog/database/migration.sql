@@ -17,3 +17,4 @@ describe post_tag;
 select * from posts;
 select * from comments;
 select * from users;
+select * from post_tag;

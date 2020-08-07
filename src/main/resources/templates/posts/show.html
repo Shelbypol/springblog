@@ -16,15 +16,15 @@
     <hr>
 
     <!--    COMMENTS    -->
-    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#comments"
+    <button style="border-left: 4px solid orange;" class="btn btn-dark" type="button" data-toggle="collapse" data-target="#comments"
             aria-expanded="false" aria-controls="collapseExample">
-        comments
+        view comments
     </button>
 
 
     <!-- ADD COMMENT -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModalCenter">
+    <button style="border-left: 4px solid orange;" type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#exampleModalCenter">
         Add comment
     </button>
 
@@ -40,13 +40,12 @@
                             <label for="createComment"></label>
                             <textarea class="form-control" id="createComment" name="createComment"></textarea>
                         </div>
-                        <button class="bg-dark text-white" style="font-weight: lighter;" type="submit">comment</button>
+                        <button  class="bg-dark text-white" style="border-left: 4px solid orange; font-weight: lighter;" type="submit">comment</button>
                     </form>
-
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button style="border-left: 4px solid orange;" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -66,14 +65,14 @@
 
     <div class="d-inline">
         <!--    EDIT BTN    -->
-        <button class="d-inline bg-dark text-white" style="width:6em;"><a style="color: white;"
+        <button class="d-inline bg-secondary text-white" style="border-left: 2px solid orange; width:6em;"><a style="color: white;"
                                                                           th:href="@{/posts/edit/{id}(id=${id})}"
                                                                           th:value="${id}">Edit</a></button>
 
         <!--    DELETE BTN    -->
         <form class="d-inline ml-3" action="/posts/show/${id}" method="post" style="width:6em;">
             <input type="hidden" th:value="${id}" name="deleteBtn">
-            <button class="bg-dark text-white" style="width:6em;" type="submit" onClick="return confirm('sure?')">
+            <button class="bg-secondary text-white" style="border-left: 2px solid orange; width:6em;" type="submit" onClick="return confirm('sure?')">
                 Delete
             </button>
         </form>
