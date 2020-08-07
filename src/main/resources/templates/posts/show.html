@@ -34,7 +34,7 @@
             <div class="modal-content">
                 <div class="modal-body">
 
-                    <form th:action="@{/posts/show/{id}(id=${post.id})}" th:method="post" class="p-1">
+                    <form th:action="@{/posts/show/{id}/comment(id=${post.id})}" th:method="post" class="p-1">
                         <div class="form-group">
                             <label for="createComment"></label>
                             <textarea class="form-control" id="createComment" name="createComment"></textarea>

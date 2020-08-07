@@ -36,17 +36,11 @@ public class PostController {
         return "posts/index";
     }
 
-//    @GetMapping(value = "/posts/show/{id}", params = "id")
-//        private List<Comment> getComments(@PathVariable long id, ) {
-//
-//        commentDao.getOne(id).getContent();
-//    }
 
     //  IND POST VIEW && GET COMMENTS
     @GetMapping("/posts/show/{id}")
     public String indPostPage(@PathVariable(value = "id") long id, Model model) {
         Post indPost = postsDao.getOne(id);
-
         List<Comment> getComments = postsDao.getOne(id).getComments();
 
         model.addAttribute("comments", getComments);
@@ -55,13 +49,25 @@ public class PostController {
         return "posts/show";
     }
 
-    //    DELETE POST
-//    @PostMapping("/posts/show/{id}")
-//    public String deletePost(@RequestParam(name = "deleteBtn") long id) {
-//        postsDao.deleteById(id);
-//
-//        return "redirect:/posts";
-//    }
+    //  CREATE COMMENT
+    @PostMapping("/posts/show/{id}/comment")
+    public String getPost(@PathVariable(value = "id") long id, @RequestParam(name = "createComment") String createComment) {
+        Post post = postsDao.getOne(id);
+        Comment comment = new Comment();
+        comment.setContent(createComment);
+        comment.setParentPost(post);
+        commentDao.save(comment);
+
+        return "redirect:/posts";
+    }
+
+    //        DELETE POST
+    @PostMapping("/posts/show/{id}")
+    public String deletePost(@RequestParam(name = "deleteBtn") long id) {
+        postsDao.deleteById(id);
+
+        return "redirect:/posts";
+    }
 
     //      EDIT POST
     @GetMapping("posts/edit/{id}")
@@ -107,17 +113,10 @@ public class PostController {
     }
 
 
-    //  CREATE COMMENT
-    @PostMapping("/posts/show/{id}")
-    public String getPost(@PathVariable(value = "id") long id, @RequestParam(name = "createComment") String createComment) {
-        Post post = postsDao.getOne(id);
-        Comment comment = new Comment();
-        comment.setContent(createComment);
-        comment.setParentPost(post);
-        commentDao.save(comment);
 
-        return "redirect:/posts";
-    }
+
+
+
 
 
     //  SAVE POST
