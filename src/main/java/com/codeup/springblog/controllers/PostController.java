@@ -23,10 +23,11 @@ public class PostController {
     private final CommentRepository commentDao;
     private final EmailService emailService;
 
-    public PostController(PostRepository postsDao, UserRepository userDao, CommentRepository commentDao) {
+    public PostController(PostRepository postsDao, UserRepository userDao, CommentRepository commentDao, EmailService emailService) {
         this.postsDao = postsDao;
         this.userDao = userDao;
         this.commentDao = commentDao;
+        this.emailService = emailService;
     }
 
     //  ALL POSTS
@@ -110,9 +111,16 @@ public class PostController {
         post.setPost(createBody);
         post.setParentUser(user);
         postsDao.save(post);
-
+        emailService.prepareAndSend(postsDao.getOne(1L), post.getTitle(), post.getPost());
         return "redirect:/posts";
     }
+
+//    @GetMapping("/email")
+//    @ResponseBody
+//    public String sendEmail(){
+//        emailService.prepareAndSend(postsDao.getOne(1L), "First email!", "TESTING???????");
+//        return "Check your mailtrap inbox!";
+//    }
 
 // Register User
     @GetMapping("users/create")
