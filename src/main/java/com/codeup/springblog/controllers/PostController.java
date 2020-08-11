@@ -5,9 +5,10 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.CommentRepository;
 import com.codeup.springblog.repositories.PostRepository;
+
+
 import com.codeup.springblog.repositories.UserRepository;
 import com.codeup.springblog.services.EmailService;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -123,14 +124,14 @@ public class PostController {
 //    }
 
 // Register User
-    @GetMapping("users/create")
+    @GetMapping("users/register")
     public String showRegisterForm(Model model){
         model.addAttribute("user", new User());
 
-        return "users/create";
+        return "register";
     }
 
-    @PostMapping("users/create")
+    @PostMapping("users/register")
     public String createUser(@ModelAttribute User user){
         userDao.save(user);
         return "redirect:/posts";
