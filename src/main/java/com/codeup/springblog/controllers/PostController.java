@@ -124,18 +124,18 @@ public class PostController {
 //    }
 
 // Register User
-    @GetMapping("users/register")
-    public String showRegisterForm(Model model){
-        model.addAttribute("user", new User());
-
-        return "register";
-    }
-
-    @PostMapping("users/register")
-    public String createUser(@ModelAttribute User user){
-        userDao.save(user);
-        return "redirect:/posts";
-    }
+//    @GetMapping("users/register")
+//    public String showRegisterForm(Model model){
+//        model.addAttribute("user", new User());
+//
+//        return "register";
+//    }
+//
+//    @PostMapping("users/register")
+//    public String createUser(@ModelAttribute User user){
+//        userDao.save(user);
+//        return "redirect:/posts";
+//    }
 
 
 
