@@ -106,11 +106,11 @@ public class PostController {
     @PostMapping("/posts/create")
     public String getPost(@RequestParam(name = "createTitle") String createTitle,
                           @RequestParam(name = "createBody") String createBody) {
-        User user = userDao.getOne(1L);
+//        User user = userDao.getOne(loggedInUser).getId();
         Post post = new Post();
         post.setTitle(createTitle);
         post.setPost(createBody);
-        post.setParentUser(user);
+//        post.setParentUser(user);
         postsDao.save(post);
         emailService.prepareAndSend(postsDao.getOne(1L), post.getTitle(), post.getPost());
         return "redirect:/posts";
