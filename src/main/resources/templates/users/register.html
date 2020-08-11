@@ -11,7 +11,7 @@
 <div class="container p-5 border-left" style="margin-top: -5%;">
     <h2>Register</h2>
     <hr>
-    <form th:action="@{'users/register'}" th:method="post" th:object="${user}" class="p-5" style="margin-top: -5%;">
+    <form th:action="@users/register'}" th:method="post" th:object="${user}" class="p-5" style="margin-top: -5%;">
         <div class="form-group">
             <label for="createUsername">Username</label>
             <input type="text" class="form-control" id="createUsername" th:field="*{username}">
