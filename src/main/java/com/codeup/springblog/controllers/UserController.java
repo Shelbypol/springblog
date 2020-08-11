@@ -31,7 +31,7 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         users.save(user);
-        return "home";
+        return "redirect:/posts";
     }
 }
 
