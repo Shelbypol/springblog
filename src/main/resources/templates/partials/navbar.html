@@ -33,10 +33,10 @@
 
                 <th:block sec:authorize="!isAuthenticated()">
                     <li>
-                        <a th:href="@{/login}">Login</a>
+                        <a class="nav-link" th:href="@{/login}">Login</a>
                     </li>
                     <li>
-                        <a th:href="@{/sign-up}">Sign Up</a>
+                        <a class="nav-link" th:href="@{/sign-up}">Sign Up</a>
                     </li>
                 </th:block>
                 <th:block sec:authorize="isAuthenticated()">

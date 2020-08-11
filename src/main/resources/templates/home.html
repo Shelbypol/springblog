@@ -55,14 +55,13 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Login</h5>
+                        <h1 class="modal-title">Login</h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
                     <div class="modal-body">
-                        <h1>Log In</h1>
                         <div th:if="${param.error}">
                             Invalid Username and Password.
                         </div>
@@ -85,19 +84,6 @@
                             </button>
                         </form>
 
-<!--                        <form class="p-1">-->
-
-<!--                                <label for="loginUsername">Username</label>-->
-<!--                                <input th:type="text" class="form-control" id="loginUsername">-->
-
-<!--                                <label for="loginPassword">Password</label>-->
-<!--                                <input th:type="text" class="form-control" id="loginPassword">-->
-
-<!--                            <button class="bg-dark text-white"-->
-<!--                                    style="border-left: 4px solid orange; font-weight: lighter;"-->
-<!--                                    type="submit">Login-->
-<!--                            </button>-->
-<!--                        </form>-->
                     </div>
                 </div>
             </div>
