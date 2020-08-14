@@ -13,8 +13,10 @@ describe comments;
 describe users;
 describe tags;
 describe post_tag;
+describe tutorials;
 
 select * from posts;
 select * from comments;
 select * from users;
 select * from post_tag;
+select * from tutorials;
